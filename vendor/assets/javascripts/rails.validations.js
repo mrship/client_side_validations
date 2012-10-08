@@ -48,7 +48,7 @@
     var valid;
     form.trigger('form:validate:before.ClientSideValidations');
     valid = true;
-    form.find(':input:enabled:visible[data-validate]').each(function() {
+    form.find(':input:enabled[data-validate]').each(function() {
       if (!$(this).isValid(validators)) {
         valid = false;
       }

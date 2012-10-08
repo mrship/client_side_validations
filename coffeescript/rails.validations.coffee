@@ -38,7 +38,7 @@ validateForm = (form, validators) ->
   form.trigger('form:validate:before.ClientSideValidations')
 
   valid = true
-  form.find(':input:enabled:visible[data-validate]').each ->
+  form.find(':input:enabled[data-validate]').each ->
     valid = false unless $(@).isValid(validators)
     # we don't want the loop to break out by mistake
     true
