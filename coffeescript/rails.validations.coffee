@@ -154,7 +154,7 @@ window.ClientSideValidations.enablers =
     form   = input.form
     $form  = $(form)
 
-    $input.filter(':enabled:not(:radio):not([id$=_confirmation]):visible')
+    $input.filter(':enabled:not(:radio):not([id$=_confirmation])')
       .each ->
         $(@).attr('data-validate', true)
       .on(event, binding) for event, binding of {
@@ -176,14 +176,14 @@ window.ClientSideValidations.enablers =
           , eventData)
       }
 
-    $input.filter(':checkbox:visible').on('click.ClientSideValidations', ->
+    $input.filter(':checkbox').on('click.ClientSideValidations', ->
        $(@).isValid(form.ClientSideValidations.settings.validators)
        # If we don't return true here the checkbox will immediately uncheck itself.
        return true
     )
 
     # Inputs for confirmations
-    $input.filter('[id$=_confirmation]:visible').each ->
+    $input.filter('[id$=_confirmation]').each ->
       confirmationElement = $(@)
       element = $form.find("##{@id.match(/(.+)_confirmation/)[1]}:input")
       if element[0]

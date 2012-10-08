@@ -229,15 +229,15 @@
       };
       for (event in _ref) {
         binding = _ref[event];
-        $input.filter(':enabled:not(:radio):not([id$=_confirmation]):visible').each(function() {
+        $input.filter(':enabled:not(:radio):not([id$=_confirmation])').each(function() {
           return $(this).attr('data-validate', true);
         }).on(event, binding);
       }
-      $input.filter(':checkbox:visible').on('click.ClientSideValidations', function() {
+      $input.filter(':checkbox').on('click.ClientSideValidations', function() {
         $(this).isValid(form.ClientSideValidations.settings.validators);
         return true;
       });
-      return $input.filter('[id$=_confirmation]:visible').each(function() {
+      return $input.filter('[id$=_confirmation]').each(function() {
         var confirmationElement, element, _ref1, _results;
         confirmationElement = $(this);
         element = $form.find("#" + (this.id.match(/(.+)_confirmation/)[1]) + ":input");
